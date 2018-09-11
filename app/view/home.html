@@ -1,0 +1,27 @@
+<div class="page-header">
+    <h1 align="center">List of league </h1>
+  </div>
+
+  <table class="table table-hover" border="2">
+      <thead>
+        <tr>
+        <th>list</th>
+        <th>LeagueName</th>
+        <th>Nation</th>
+        <th>Federation</th>
+        <th>Table</th>
+        <th>Top Scorer</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat='item in total2 '>
+          <th align="center">{{$index+1}}</th>
+          <th align="center"><a ng-href='#!/home/{{item.league_slug}}'>{{item.name}}</a></th>
+          <th align="center">{{item.nation}}</th>
+          <th align="center">{{item.federation}}</th>  
+          <th align="center">ดูตารางคะแนน</a></th>
+          <th align="center">Top Scorers</a></th>
+        </tr>
+      </tbody>
+    </table>
+  

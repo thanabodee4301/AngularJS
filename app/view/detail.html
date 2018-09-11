@@ -1,0 +1,34 @@
+<div class="page-header">
+    ตารางคะแนน {{league_slug}} 
+  </div>
+    </div>
+  <table class="table table-hover" border="2">
+      <thead>
+        <tr>
+        <th>อันดับ</th>
+        <th>ทีม</th>
+        <th>ชนะ</th>
+        <th>เสมอ</th>
+        <th>แพ้</th>
+        <th>คะแนน</th>
+        <th>ประตูได้</th>
+        <th>ประตูเสีย</th>
+        <th>ผลต่างประตูได้เสีย</th>
+        <th>ดูผลการแข่งขัน</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="item in total2"">
+          <th>{{item.position}}</th>
+          <th>{{item.team}}</a></th>
+          <th>{{item.overall.wins}}</th>
+          <th>{{item.overall.draws}}</th>   
+          <th>{{item.overall.losts}}</th>
+          <th>{{item.overall.points}}</th>
+          <th>{{item.overall.scores}}</th>
+          <th>{{item.overall.conceded}}
+          <th>{{item.overall.scores - item.overall.conceded}}</th>
+          <th>ดูผลการแข่งขัน</a></th>
+        </tr>
+      </tbody>
+    </table>

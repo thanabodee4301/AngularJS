@@ -1,0 +1,24 @@
+<table class="table table-hover" border="2">
+    <thead>
+      <tr>
+      <th>Position</th>
+      <th>PlayerName</th>
+      <th>nationality</th>
+      <th>Goals</th>
+      <th>Penalties</th>
+      <th>Matches</th>
+      <th>Team</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="let items of scorer; let x=index;">
+        <th>{{x+1}}</th>
+        <th>{{items.fullname}}</th> 
+        <th>{{items.nationality}}</th>
+        <th>{{items.goals}}</th>
+        <th>{{items.penalties}}</th>
+        <th>{{items.matches}}</th>
+        <th>{{items.team}}</th>    
+      </tr>
+    </tbody>
+  </table>
