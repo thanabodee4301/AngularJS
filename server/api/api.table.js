@@ -1,7 +1,7 @@
 var axios = require('axios');
-exports.TopScorers = async (league) => {
+exports.Table = async (league) => {
     try {
-        var url = `https://sportsop-soccer-sports-open-data-v1.p.mashape.com/v1/leagues/${league}/seasons/17-18/topscorers`;
+        var url = `https://sportsop-soccer-sports-open-data-v1.p.mashape.com/v1/leagues/${league}/seasons/18-19/standings`;
         var option = {
             headers: {
                 "X-Mashape-Key": "MzaZdz6LaBmshxXxtCHsjiGDl89Dp1qPKkwjsn60GFXVharyV1",
@@ -10,7 +10,7 @@ exports.TopScorers = async (league) => {
         }
         var result = await axios.get(url, option);
         if (result.data.data.statusCode == "200") {
-            return result.data.data.topscorers;
+            return result.data.data.standings;
         } else {
             return 404;
         }
@@ -18,4 +18,3 @@ exports.TopScorers = async (league) => {
         return 404
     }
 }
-

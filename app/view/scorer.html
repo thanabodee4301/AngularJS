@@ -11,8 +11,8 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="let items of scorer; let x=index;">
-        <th>{{x+1}}</th>
+      <tr ng-repeat=" items in total2; ">
+        <th>{{$index+1}}</th>
         <th>{{items.fullname}}</th> 
         <th>{{items.nationality}}</th>
         <th>{{items.goals}}</th>

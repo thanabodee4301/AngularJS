@@ -13,36 +13,21 @@
                   templateUrl: "view/about.html",
                   controller: "aboutController"
               })
-              .when("home/:league_slug/scorer",{
+              .when("/home/:league_slug/scorer",{
                   templateUrl:'view/scorer.html',
-                  controller:'detailController'
+                  controller:'scorerController'
               })
               .when('/home/:league_slug',{
                   templateUrl:'view/detail.html',
                   controller:'standings'
               })
-              .otherwise({
-                redirectTo: "/",
-            })
+              .when('/round/:league_slug/:team_identifier',{
+                  templateUrl:"view/league.html",
+                  controller:"matchController"
+              })
+              .when('/detail/:league_slug/:position',{
+                  templateUrl:'view/overall.html',
+                  controller:'detailController'
+              })
         })
-        footballApi.controller('mainController',function($scope,$http) {
-            $http.get( "/api/show", {} )
-            .then(function(res) {
-               $scope.total2 = res.data;
-            });
-        }
-        );
-        footballApi.controller('standings',['$scope','$http','$routeParams',function($scope,$http,$routeParams){
-          var league_slug = $routeParams.league_slug;
-            $http.get(`/api/show/${league_slug}`,{})
-            .then(function(res){
-                $scope.total2 = res.data
-            })
-        }])
-        footballApi.controller('scorerController',['$scope','$http','$routeParam',function($scope,$http,$routeParams){
-            var league_slug = routeParams.league_slug;
-            $http.get(`/api/show/${league_slug}/scorer`,{})
-            .then(function(res){
-                $scope.total2 = res.data
-            })
-        }])
+       

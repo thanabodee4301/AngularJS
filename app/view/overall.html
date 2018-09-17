@@ -1,0 +1,45 @@
+<div class="page-header" *ngFor="let item4 of detail">
+    ผลงานของ {{item4.team}}
+   </div>
+   <table class="table table-hover" border="2">
+       <thead>
+         <tr>
+         <th>ผลงาน</th>
+         <th>Wins</th>
+         <th>Draws</th>
+         <th>Losts</th>
+         <th>Point</th>
+         <th>Scores</th>
+         <th>Conceded</th>
+         </tr>
+       </thead>
+       <tbody>
+         <tr ng-repeat=" items in total2;">
+             <th align="center">รวม</th>
+             <th align="center">{{items.overall.wins}}</th>
+             <th align="center">{{items.overall.draws}}</th>
+             <th align="center">{{items.overall.losts}}</th> 
+             <th align="center">{{items.overall.points}}</th>
+             <th align="center">{{items.overall.scores}}</th>
+             <th align="center">{{items.overall.conceded}}</th>  
+         </tr>
+         <tr ng-repeat=" items2 in total2;">
+           <th align="center">ในบ้าน</th>
+           <th align="center">{{items2.home.wins}}</th>
+           <th align="center">{{items2.home.draws}}</th>
+           <th align="center">{{items2.home.losts}}</th> 
+           <th align="center">{{items2.home.points}}</th>
+           <th align="center">{{items2.home.scores}}</th>
+           <th align="center">{{items2.home.conceded}}</th>
+         </tr>
+         <tr ng-repeat=" items3 in total2;">
+           <th>นอกบ้าน</th>
+           <th align="center">{{items3.away.wins}}</th>
+           <th align="center">{{items3.away.draws}}</th>
+           <th align="center">{{items3.away.losts}}</th> 
+           <th align="center">{{items3.away.points}}</th>
+           <th align="center">{{items3.away.scores}}</th>
+           <th align="center">{{items3.away.conceded}}</th>
+        </tr>
+       </tbody>
+     </table>

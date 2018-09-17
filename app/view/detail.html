@@ -18,9 +18,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="item in total2"">
+        <tr ng-repeat="item in total2">
           <th>{{item.position}}</th>
-          <th>{{item.team}}</a></th>
+          <th><a ng-href='#!/detail/{{league_slug}}/{{item.position}}'>{{item.team}}</a></th>
           <th>{{item.overall.wins}}</th>
           <th>{{item.overall.draws}}</th>   
           <th>{{item.overall.losts}}</th>
@@ -28,7 +28,7 @@
           <th>{{item.overall.scores}}</th>
           <th>{{item.overall.conceded}}
           <th>{{item.overall.scores - item.overall.conceded}}</th>
-          <th>ดูผลการแข่งขัน</a></th>
+          <th><a ng-href='#!/round/{{league_slug}}/{{item.team_identifier}}'>ดูผลการแข่งขัน</a></th>
         </tr>
       </tbody>
     </table>
