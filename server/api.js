@@ -5,18 +5,26 @@ var table = require('./routes/table.js');
 var historymatch = require('./routes/historymatch.js');
 var overall =require('./routes/overall.js');
 var league = require('./routes/league.js');
-
-
+var mysql = require('mysql');
+var bodyParser = require('body-parser');
+var app = express();
+app.use(bodyParser.json()); // for parsing application/json
+app.use(bodyParser.urlencoded({ extended: true }));
+/*
 router.get('/show', league);
 router.get('/show/:league_slug/scorer', score);
 router.get('/show/:league_slug', table);
 router.get('/round/:league_slug/:team_identifier', historymatch);
 router.get('/check/:league_slug/:position', overall);
 module.exports = router;
-module.exports = router;
-/*
-const express = require('express');
-const router =express.Router();
+*/
+var con =mysql.createConnection({
+    host:"localhost",
+    user:"root",
+    password:"12345678",
+    database:"workshop"
+});
+
 var unirest= require('unirest'); 
 var token = 'MzaZdz6LaBmshxXxtCHsjiGDl89Dp1qPKkwjsn60GFXVharyV1';
 var key = 'X-Mashape-Key';
@@ -109,9 +117,25 @@ router.get('/show',(req,res)=>{
        res.send(result.body.data.leagues)
    });
 });
+router.post('/register2',function(req,res){
+var userData = req.body;
+var sql = con.query("insert into user set ?",userData,function(err,result){
+    if(err)throw err
+    res.end();
+})
+})
+router.post('/login2',function(req,res){
+    var user = req.body;
+    var sql = `SELECT * FROM user WHERE userEmail ='${user.userEmail}' AND userPassword ='${user.userPassword}' `;
+    var mysql = con.query(sql,(err,result)=>{
+        if(err) throw err
+       res.send(result)
+    })
+   
+
+})
 
 
 
 
-
-module.exports = router;*/
+module.exports = router;

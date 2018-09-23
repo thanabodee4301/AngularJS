@@ -39,3 +39,25 @@ footballApi.controller('matchController',['$scope','$http','$routeParams',functi
         $scope.league_slug = league_slug;
     })
 }])
+footballApi.controller('registerController',['$scope','$http','$location',function($scope,$http,$location){
+    $scope.register = function(){
+        $http.post("/api/register2",$scope.formData).
+        then(function(res){
+            alert('OKKKKKKKK');
+            $location.path('/login');
+        }).catch(function(res) {
+            alert('Try again');
+        })
+    }
+}])
+footballApi.controller('loginController',['$scope','$http','$location',function($scope,$http,$location){
+    var user = {
+        userEmail:$scope.userEmail,userPassword:$socpe.userPassword
+    }
+    $scope.login = function(){
+        $http.post("/api/login2",user)
+        .then(function(res){
+            console.log(res)
+        })
+    }
+}])

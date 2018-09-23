@@ -1,0 +1,10 @@
+<form name="loginform" ng-submit="login(loginform.$valid)">
+        <h1>Login</h1>
+        <label for="name">Email:</label>
+        <input type="text" name="name" ng-model="formUser.userEmail" required><br>
+        <label for="surname">Passwrod:</label>
+        <input type="password" name="password" ng-model="formUser.userPassword" required><br>
+        <!-- <div class="g-recaptcha" data-sitekey="6LeMMnEUAAAAAEl5vm8hAYJQjj64213rhYwW8V9k"></div> -->
+        <button type="submit" class="btn btn-primary" ng-disabled="loginform.$invalid">Submit</button>
+        </form>
+    

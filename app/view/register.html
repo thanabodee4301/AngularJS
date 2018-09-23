@@ -1,0 +1,13 @@
+<form name="registerform" ng-submit="register(registerform.$valid)">
+    <h1>Register</h1>
+    <label for="name">Name:</label>
+    <input type="text" name="name" ng-model="formData.userName" required><br>
+    <label for="surname">Surname:</label>
+    <input type="text" name="surname" ng-model="formData.userSurname" required><br>
+    <label for="email">E-mail:</label>
+    <input type="email" name="email" ng-model="formData.userEmail" required><br>
+    <label for="password">Password:</label>
+    <input type="password" name="password" ng-model="formData.userPassword" required><br>
+    <!-- <div class="g-recaptcha" data-sitekey="6LeMMnEUAAAAAEl5vm8hAYJQjj64213rhYwW8V9k"></div> -->
+    <button type="submit" class="btn btn-primary" ng-disabled="registerform.$invalid">Submit</button>
+    </form>
