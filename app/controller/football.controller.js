@@ -51,13 +51,27 @@ footballApi.controller('registerController',['$scope','$http','$location',functi
     }
 }])
 footballApi.controller('loginController',['$scope','$http','$location',function($scope,$http,$location){
-    var user = {
-        userEmail:$scope.userEmail,userPassword:$socpe.userPassword
-    }
     $scope.login = function(){
-        $http.post("/api/login2",user)
+        $http.post("/api/login2",$scope.formUser)
         .then(function(res){
             console.log(res)
         })
     }
+}])
+footballApi.controller('imgpicker',['$scope','$http','$location', function($scope,$http,$location){
+    $http.get('/api/imgpicker')
+
+    /*function ImagePickerCtrl($scope) {
+        $scope.all_images = ['thaipostlogo',2,3,4,5,6,7,8,9,10];
+        $scope.selectImage = function (image) {
+            if($scope.selected_image === image) {
+                $scope.selected_image = '';
+                console.log('if');
+            }
+            else {
+                $scope.selected_image = image;
+                console.log('else');
+            }
+        }
+    }*/
 }])

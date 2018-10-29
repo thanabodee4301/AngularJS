@@ -1,0 +1,17 @@
+<div class="page-header">
+	<div class="row-fluid">
+		<div class="span8 offset2">
+			<div class="row-fluid">
+				<div ng-repeat="image in all_images">
+					<div class="span1" ng-click="selectImage(image)" ng-class="{'selected-image': (selected_image === image)}">
+						<div>
+							{{image}}
+						</div>
+						<img ng-src="./images/{{image}}.png">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

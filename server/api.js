@@ -125,9 +125,10 @@ var sql = con.query("insert into user set ?",userData,function(err,result){
 })
 })
 router.post('/login2',function(req,res){
-    var user = req.body;
-    var sql = `SELECT * FROM user WHERE userEmail ='${user.userEmail}' AND userPassword ='${user.userPassword}' `;
-    var mysql = con.query(sql,(err,result)=>{
+    var user = req.body.userEmail;
+    var pass = req.body.userPassword;
+    var sql = 'SELECT * FROM user WHERE userEmail = ? AND userPassword = ?';
+    var mysql = con.query(sql,[user,pass],(err,result)=>{
         if(err) throw err
        res.send(result)
     })
